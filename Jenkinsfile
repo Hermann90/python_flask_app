@@ -34,7 +34,7 @@ pipeline {
                 // Activate virtual environment and run tests
                 sh '''
                     source myenv/bin/activate
-                    python -m test_app.py
+                    python -m pytest test_app.py
                 '''
             }
         }
