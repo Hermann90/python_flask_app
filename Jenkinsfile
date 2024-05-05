@@ -14,7 +14,7 @@ pipeline {
                 // Activate virtual environment and install dependencies
                 sh '''
                     source myenv/bin/activate
-                    pip install -r requirements.txt
+                    pip install -r requirement.txt
                 '''
             }
         }
