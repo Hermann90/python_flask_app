@@ -3,7 +3,7 @@ pipeline {
     stages { 
         stage('Create_ENV') {
             steps {
-                sh 'ls'
+                sh 'python3 -m venv myenv'
                 sh 'pwd'
             }
         }
