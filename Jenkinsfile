@@ -3,8 +3,8 @@ pipeline {
     stages { 
         stage('Create_ENV') {
             steps {
-                sh 'virtualenv venv'
-                sh 'source venv/bin/activate'
+                sh 'ls'
+                sh 'pwd'
             }
         }
 
