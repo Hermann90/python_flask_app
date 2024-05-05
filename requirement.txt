@@ -1,3 +1,6 @@
 flask==2.0.2
 selenium==4.1.0
 # unittest
+pytest==3.4.2
+pytest-cov==2.5.1
+pytest-dependency==0.2
