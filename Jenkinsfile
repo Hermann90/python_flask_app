@@ -19,7 +19,7 @@ pipeline {
             }
         }
         
-        stage('Run Python Script') {
+        /*stage('Run Python Script') {
             steps {
                 // Activate virtual environment and run Python script
                 sh '''
@@ -27,7 +27,7 @@ pipeline {
                     python app.py
                 '''
             }
-        }
+        }*/
         
         stage('Run Tests') {
             steps {
