@@ -1,27 +1,49 @@
 pipeline {
     agent any
-    stages { 
-        stage('Create_ENV') {
+    
+    stages {
+        stage('Setup') {
             steps {
+                // Create a virtual environment
                 sh 'python3 -m venv myenv'
-                sh 'pwd'
             }
         }
-
-        stage('config requirement') {
+        
+        stage('Install Dependencies') {
             steps {
-                sh 'pip3 install -r requirement.txt'
+                // Activate virtual environment and install dependencies
+                sh '''
+                    source myenv/bin/activate
+                    pip install -r requirements.txt
+                '''
             }
         }
-        stage('Build') {
+        
+        stage('Run Python Script') {
             steps {
-                sh 'python3 app.py'
+                // Activate virtual environment and run Python script
+                sh '''
+                    source myenv/bin/activate
+                    python my_script.py
+                '''
             }
         }
-        stage('Test') {
+        
+        stage('Run Tests') {
             steps {
-                sh 'python3 -m test_app.py'
+                // Activate virtual environment and run tests
+                sh '''
+                    source myenv/bin/activate
+                    python -m pytest
+                '''
             }
+        }
+    }
+    
+    post {
+        always {
+            // Clean up: deactivate virtual environment
+            sh 'deactivate || true'
         }
     }
 }
